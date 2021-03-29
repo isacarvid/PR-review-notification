@@ -9,7 +9,7 @@ jobs:
         id: selftest
 
         # Put your action repo here
-        uses: isacarvid/python-action@main
+        uses: isacarvid/python-action@master
 
       - name: Check outputs
         run: |
