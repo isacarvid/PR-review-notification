@@ -15,7 +15,7 @@ def main():
 
 
         
-    print(f"::set-output name=myOutput::{my_output}")
+    print(f"::set-output name=myOutput::{"hejhej"}")
 
 
 if __name__ == "__main__":
