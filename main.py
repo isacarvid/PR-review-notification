@@ -6,7 +6,7 @@ def main():
     yaml_path = os.environ["INPUT_PATH"]
     file_path = os.environ["INPUT_FILEPATH"]
 
-    my_output = f"Hello {file_path}"
+    my_output = f"hejhej"
     lines = open("README.md").readlines
     my_output = lines[0]
     for i in range(lines):
