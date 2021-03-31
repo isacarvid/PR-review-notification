@@ -12,7 +12,6 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: "3.7"
-      - uses: actions/checkout@v1
       - name: Get README.md
         run: |
           git fetch --quiet
