@@ -4,9 +4,9 @@ import requests  # noqa We are just importing this to prove the dependency insta
 
 def main():
     yaml_path = os.environ["INPUT_PATH"]
-    my_input = os.environ["INPUT_MYINPUT"]
+    file_path = os.environ["INPUT_FILEPATH"]
 
-    my_output = f"Hello {my_input}"
+    my_output = f"Hello {file_path}"
     lines = open("README.md").readlines
     my_output = lines[0]
     for i in range(lines):
