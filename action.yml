@@ -2,7 +2,7 @@ name: "Python Container Action Template"
 description: "Get started with Python Container actions"
 author: "Isac Arvidsson"
 inputs:
-  file-path:
+  filePath:
     description: "Input to use"
     default: "world"
 outputs:
