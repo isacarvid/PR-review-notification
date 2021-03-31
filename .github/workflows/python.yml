@@ -12,13 +12,13 @@ jobs:
         with:
           python-version: "3.7"
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
       - name: Get README.md
         run: |
           git fetch
           readme=$(git diff ${{ github.event.pull_request.base.sha }} --name-only)
           echo "::set-output name=file-path::$readme"
       - name: run python
-        uses: isacarvid/python-action@v2
+        uses: isacarvid/python-action@v1
         with:
           file-path: ${{ steps.git-command.outputs.files}}
