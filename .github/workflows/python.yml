@@ -20,6 +20,6 @@ jobs:
           echo "::set-output name=file-path::$readme"
       - name: run python
         #run: python3 main.py
-        uses: isacarvid/python-action
+        uses: ./
         with:
           file-path: ${{ steps.git-command.outputs.files}}
