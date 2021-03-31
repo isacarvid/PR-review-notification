@@ -1,5 +1,8 @@
 name: Lint
-on: [push, pull_request]
+on:
+  push:
+    paths:
+    - '**.md'
 jobs:
   lint:
     name: Lint
@@ -9,10 +12,13 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: "3.7"
-
-      - uses: actions/checkout@v1
-
-      - name: Lint
+      - name: Get README.md
+        run: |
+          git fetch --quiet
+          files=$(git diff ${{ github.event.pull_request.base.sha }} --name-only)
+          echo "::set-output name=files::$files"
+      - name: run python
+        uses: isacarvid/python-action@v2
         run: |
           pip install flake8
           flake8 main.py

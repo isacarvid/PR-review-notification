@@ -3,11 +3,19 @@ import requests  # noqa We are just importing this to prove the dependency insta
 
 
 def main():
-    my_input = os.environ["INPUT_MYINPUT"]
+    yaml_path = os.environ["INPUT_PATH"]
+    file_path = os.environ["INPUT_FILEPATH"]
 
-    my_output = f"Hello {my_input}"
+    my_output = f"hejhej"
+    lines = open("README.md").readlines
+    my_output = lines[0]
+    for i in range(lines):
+        if lines[i] == "##Members":
+            my_output = "yessssss"
 
-    print(f"::set-output name=myOutput::{my_output}")
+
+        
+    print(f"::set-output name=myOutput::{"hejhej"}")
 
 
 if __name__ == "__main__":
