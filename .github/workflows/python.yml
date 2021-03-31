@@ -17,7 +17,6 @@ jobs:
         run: |
           git fetch
           readme=$(git diff ${{ github.event.pull_request.base.sha }} --name-only)
-          echo "::set-output name=files::$readme"
       - name: run python
         run: |
           pip install flake8
