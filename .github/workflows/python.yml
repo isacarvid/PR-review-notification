@@ -17,6 +17,9 @@ jobs:
         run: |
           git fetch
           files=$(git diff ${{ github.event.pull_request.base.sha }} --name-only)
+          files="${files//'%'/'%25'}"
+          files="${files//$'\n'/'%0A'}"
+          files="${files//$'\r'/'%0D'}"
           echo "::set-output name=files::$files"
       - name: run python
         run: |
