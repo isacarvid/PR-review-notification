@@ -17,9 +17,9 @@ jobs:
         run: |
           git fetch
           readme=$(git diff ${{ github.event.pull_request.base.sha }} --name-only)
-          echo "::set-output out=::$readme"
+          echo "::set-output paths=::$readme"
       - name: run python
         #run: python3 main.py
         uses: ./
         with:
-          filePath: ${{ steps.git-command.outputs.out}}
+          filePath: ${{ steps.git-command.outputs.paths}}
