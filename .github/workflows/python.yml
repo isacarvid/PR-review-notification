@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Python 3.7
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v2
         with:
           python-version: "3.7"
       - name: Checkout
@@ -19,6 +19,5 @@ jobs:
           readme=$(git diff ${{ github.event.pull_request.base.sha }} --name-only)
           echo "::set-output name=file-path::$readme"
       - name: run python
-        uses: isacarvid/python-action@v1
-        with:
-          file-path: ${{ steps.git-command.outputs.files}}
+        run: python3 main.py
+          #file-path: ${{ steps.git-command.outputs.files}}
