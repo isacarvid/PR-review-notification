@@ -10,6 +10,7 @@ def main():
         if lines[i] == "##Members":
             my_output = "yessssss" '''
     print("hej")
+    print(file_path)
     print(f"::set-output name=myOutput::{my_output}")
 
 if __name__ == "__main__":
