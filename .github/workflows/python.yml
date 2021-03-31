@@ -19,5 +19,7 @@ jobs:
           readme=$(git diff ${{ github.event.pull_request.base.sha }} --name-only)
           echo "::set-output name=file-path::$readme"
       - name: run python
-        run: python3 main.py
-          #file-path: ${{ steps.git-command.outputs.files}}
+        #run: python3 main.py
+        uses: isacarvid/python-action
+        with:
+          file-path: ${{ steps.git-command.outputs.files}}

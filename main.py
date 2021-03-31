@@ -1,7 +1,6 @@
 import os
 
 def main():
-    yaml_path = os.environ["INPUT_PATH"]
     file_path = os.environ["INPUT_FILEPATH"]
 
     my_output = f"hejhej{file_path}"
