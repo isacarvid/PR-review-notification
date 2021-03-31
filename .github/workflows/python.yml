@@ -21,5 +21,5 @@ jobs:
       - name: run python
         run: |
           python main.py
-        width:
+        with:
           file-path: ${{ steps.git-command.outputs.files}}
