@@ -12,7 +12,7 @@ def main():
     print("hej")
     print(file_path.splitlines())
     readme = []
-    for file in file_path.splitlines:
+    for file in file_path.splitlines():
         if file.find("README") != -1:
             readme = open(file).readlines() 
     print(readme[0])
