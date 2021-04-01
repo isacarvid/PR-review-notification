@@ -16,7 +16,7 @@ jobs:
       - name: Get README.md
         run: |
           git fetch --quiet
-          changed=$(git diff ${{ github.event.pull_request.head.sha }} ${{ github.event.pull_request.base.sha }} --name-only)
+          changed=$(git diff master head --name-only)
           changed="${changed//'%'/'%25'}"
           changed="${changed//$'\n'/'%0A'}"
           changed="${changed//$'\r'/'%0D'}"
