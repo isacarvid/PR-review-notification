@@ -16,7 +16,7 @@ jobs:
       - name: Get README.md
         run: |
           git fetch --quiet
-          diffPaths = 'hellothere'
+          diffPaths = $('hellothere')
           echo "::set-output name=paths=::$diffPaths"
         id: get-diff
       - name: run python
