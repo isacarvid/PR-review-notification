@@ -14,12 +14,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
       - name: Get README.md
-        run: | 
-          git fetch --quiet 
-          echo "::set-output name=paths=::$(git diff ${{ github.event.pull_request.head.sha }} ${{ github.event.pull_request.base.sha }} --name-only)"
+      run: |
+          git fetch --quiet
+          changed=$(git diff ${{ github.event.pull_request.head.sha }} ${{ github.event.pull_request.base.sha }} --name-only)
+          changed="${changed//'%'/'%25'}"
+          changed="${changed//$'\n'/'%0A'}"
+          changed="${changed//$'\r'/'%0D'}"
+          echo "::set-output name=files::$changed"
         id: get-diff
       - name: run python
         #run: python3 main.py
         uses: ./
         with:
-          filePath: ${{ steps.get-diff.outputs.paths}}
+          filePath: ${{ steps.get-diff.outputs.files}}
