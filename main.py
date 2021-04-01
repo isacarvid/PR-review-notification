@@ -10,7 +10,7 @@ def main():
         if lines[i] == "##Members":
             my_output = "yessssss" '''
     print("hej")
-    print(file_path.splitlines)
+    print(file_path.splitlines())
     '''readme = []
     for file in file_path.splitlines:
         if file.find("README") != -1:
