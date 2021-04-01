@@ -11,11 +11,11 @@ def main():
             my_output = "yessssss" '''
     print("hej")
     print(file_path.splitlines())
-    '''readme = []
+    readme = []
     for file in file_path.splitlines:
         if file.find("README") != -1:
             readme = open(file).readlines() 
-    print(readme[0])'''
+    print(readme[0])
     
 
 if __name__ == "__main__":
