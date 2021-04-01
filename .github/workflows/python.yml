@@ -27,3 +27,5 @@ jobs:
         uses: ./
         with:
           filePath: ${{ steps.get-diff.outputs.files}}
+          usernameSecret: ${{ secrets.EMAIL_PASSWORD }}
+          passwordSecret: ${{ secrets.EMAIL_USERNAME }}

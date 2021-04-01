@@ -2,7 +2,12 @@ import os
 
 def main():
     file_path = os.environ["INPUT_FILEPATH"]
+    username = os.environ["INPUT_USERNAMESECRET"]
+    pwd = os.environ["INPUT_PASSWORDSECRET"]
 
+
+    print(pwd)
+    print(username)
     my_output = f"hejhej{file_path}"
     '''lines = open("README.md").readlines
     my_output = lines[0]
