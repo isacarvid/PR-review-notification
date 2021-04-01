@@ -14,7 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
       - name: Get README.md
-        run:| 
+        run: | 
           git fetch --quiet 
           echo "::set-output name=paths=::$(git diff ${{ github.event.pull_request.head.sha }} ${{ github.event.pull_request.base.sha }} --name-only)"
         id: get-diff
