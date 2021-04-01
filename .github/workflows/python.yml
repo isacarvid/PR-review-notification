@@ -15,12 +15,12 @@ jobs:
         uses: actions/checkout@v1
       - name: Get README.md
         run: |
-          git fetch
+          git fetch --quiet
           diffPaths=$(git diff ${{ github.event.pull_request.head.sha }} ${{ github.event.pull_request.base.sha }} --name-only)
-          echo "::set-output name=paths=::hejhej"
+          echo "::set-output name=paths=::$diffPaths"
         id: get-diff
       - name: run python
         #run: python3 main.py
         uses: ./
         with:
-          filePath: hejejekke
+          filePath: ${{steps.get-diff.outputs.paths}}
