@@ -49,8 +49,7 @@ def main():
     for file in file_path.splitlines():
         if file.find("README") != -1:
             readme = open(file).readlines() 
-    sendEmail(username, pwd, domain, username, message)
-    
+
     notify = False
     for line in readme:
         if "notify" in line:
@@ -59,9 +58,9 @@ def main():
 
     if notify:
         (num_mail, mails) = emailFinder(readme)
-        for mail_addr in mails:
-            # send to each mail
-            1 == 1
+        for to_addr in mails:
+            sendEmail(username, pwd, domain, to_addr, message)
+
 
 if __name__ == "__main__":
     main()
