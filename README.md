@@ -2,5 +2,5 @@
 (isac.arvidsson97@gmail.com)
 ssax
 
-ayub@kth.se
+isacarv@kth.se
 notify
