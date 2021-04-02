@@ -26,6 +26,7 @@ def main():
         if file.find("README") != -1:
             readme = open(file).readlines() 
     sendEmail(username, pwd, domain, username, message)
+    
 
 if __name__ == "__main__":
     main()
