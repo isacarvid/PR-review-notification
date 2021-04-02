@@ -3,4 +3,4 @@
 ssax
 
 ayub@kth.se
-notify
+notify ON
