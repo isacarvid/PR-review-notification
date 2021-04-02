@@ -36,6 +36,7 @@ def emailFinder(readme):
         return (num_email, mails)
 
 def main():
+    print("hej")
     file_path = os.environ["INPUT_FILEPATH"]
     username = os.environ["INPUT_USERNAMESECRET"]
     pwd = os.environ["INPUT_PASSWORDSECRET"]
