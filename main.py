@@ -52,6 +52,7 @@ def main():
 
     notify = False
     for line in readme:
+        print(line)
         if "notify" in line:
             notify = True
             break
