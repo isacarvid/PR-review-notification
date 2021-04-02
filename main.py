@@ -16,15 +16,16 @@ def main():
     username = os.environ["INPUT_USERNAMESECRET"]
     pwd = os.environ["INPUT_PASSWORDSECRET"]
     domain = os.environ["INPUT_DOMAINSECRET"]
- 
-    print("hej")
-    print(file_path.splitlines())
 
+    message = """\
+        Subject: Kth devops
+
+        You recieved a comment on your PR."""
     readme = []
     for file in file_path.splitlines():
         if file.find("README") != -1:
             readme = open(file).readlines() 
-    sendEmail(username, pwd, domain, username, "hej på dig")
+    sendEmail(username, pwd, domain, username, message)
     
 
 if __name__ == "__main__":
