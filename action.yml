@@ -11,6 +11,9 @@ inputs:
     description: "username for email"
   domainSecret:
     description: "domain for email"
+  keyword:
+    description: "keyword for notify or not"
+
 outputs:
   myOutput:
     description: "Output from the action"
