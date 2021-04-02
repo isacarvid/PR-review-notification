@@ -3,9 +3,5 @@
 ssax
 
 isacarv@kth.se
-notify
+#notify
 
-aatif@kth.se
-
-aatif@kth.se
-notify
