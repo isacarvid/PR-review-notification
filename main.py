@@ -24,7 +24,6 @@ def main():
     for file in file_path.splitlines():
         if file.find("README") != -1:
             readme = open(file).readlines() 
-    print(readme[0])
     sendEmail(username, pwd, domain, username, "hej på dig")
     
 
