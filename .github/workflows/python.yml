@@ -18,6 +18,11 @@ jobs:
           python-version: "3.7"
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Pull Request Comment Trigger
+        uses: Khan/pull-request-comment-trigger@1.0.0
+        with:
+          trigger: '@deploy'
+          reaction: rocket 
       - name: Get README.md
         run: |
           git fetch --quiet
