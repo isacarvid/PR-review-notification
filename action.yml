@@ -9,6 +9,8 @@ inputs:
     description: "password for email"
   usernameSecret:
     description: "username for email"
+  domainSecret:
+    description: "domain for email"
 outputs:
   myOutput:
     description: "Output from the action"

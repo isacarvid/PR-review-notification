@@ -1,4 +1,15 @@
 import os
+import smtplib, ssl
+
+def sendEmail(username, password, domain, toAddress, msg):
+    port = 465
+    context = ssl.create_default_context()
+    server = ""
+
+    with smtplib.SMTP_SSL(domain, port, context=context) as server:
+        server.login(username, password)
+        server.sendmail(username, toAddress, msg)
+
 
 def emailFinder(readme):
     num_email = 0
@@ -28,23 +39,17 @@ def main():
     file_path = os.environ["INPUT_FILEPATH"]
     username = os.environ["INPUT_USERNAMESECRET"]
     pwd = os.environ["INPUT_PASSWORDSECRET"]
+    domain = os.environ["INPUT_DOMAINSECRET"]
 
+    message = """\
+        Subject: Kth devops
 
-    print(pwd)
-    print(username)
-    my_output = f"hejhej{file_path}"
-    '''lines = open("README.md").readlines
-    my_output = lines[0]
-    for i in range(lines):
-        if lines[i] == "##Members":
-            my_output = "yessssss" '''
-    print("hej")
-    print(file_path.splitlines())
+        You recieved a comment on your PR."""
     readme = []
     for file in file_path.splitlines():
         if file.find("README") != -1:
             readme = open(file).readlines() 
-    print(readme[0])
+    sendEmail(username, pwd, domain, username, message)
     
     notify = False
     for line in readme:
