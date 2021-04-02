@@ -1,6 +1,7 @@
 name: Notifier
 on:
-  push:
+  pull_request_review:
+    types: [edited, dismissed, submitted]
   
 jobs:
   Notifier:
@@ -16,14 +17,13 @@ jobs:
       - name: Get README.md
         run: |
           git fetch --quiet
-          changed=$(git diff origin/master HEAD --name-only)
-          changed="${changed//'%'/'%25'}"
-          changed="${changed//$'\n'/'%0A'}"
-          changed="${changed//$'\r'/'%0D'}"
-          echo "::set-output name=files::$changed"
+          diff=$(git diff origin/master HEAD --name-only)
+          diff="${changed//'%'/'%25'}"
+          diff="${changed//$'\n'/'%0A'}"
+          diff="${changed//$'\r'/'%0D'}"
+          echo "::set-output name=files::$diff"
         id: get-diff
       - name: run python
-        #run: python3 main.py
         uses: ./
         with:
           filePath: ${{ steps.get-diff.outputs.files}}
