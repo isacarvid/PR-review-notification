@@ -40,6 +40,7 @@ def main():
     username = os.environ["INPUT_USERNAMESECRET"]
     pwd = os.environ["INPUT_PASSWORDSECRET"]
     domain = os.environ["INPUT_DOMAINSECRET"]
+    keyword = os.environ["INPUT_KEYWORD"]
 
     message = """\
         Subject: Kth devops
@@ -52,7 +53,7 @@ def main():
 
     notify = False
     for line in readme:
-        if "notify" in line:
+        if keyword in line:
             notify = True
             break
 

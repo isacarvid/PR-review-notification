@@ -30,3 +30,4 @@ jobs:
           usernameSecret: ${{ secrets.EMAIL_USERNAME }}
           passwordSecret: ${{ secrets.EMAIL_PASSWORD }}
           domainSecret: ${{ secrets.EMAIL_DOMAIN }}
+          keyword: '#notify'
