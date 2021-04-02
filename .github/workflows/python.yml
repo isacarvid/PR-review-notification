@@ -1,6 +1,9 @@
 name: Notifier
 on:
-  push:
+  pull_request:
+    types: [opened]
+  issue_comment:
+    types: [created]
   
 jobs:
   Notifier:
