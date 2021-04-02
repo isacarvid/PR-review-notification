@@ -33,7 +33,7 @@ def emailFinder(readme):
                 start_index -= 1
             
             domain_index += 7 # 7 is len("@kth.se")
-        return (num_email, mails)
+    return (num_email, mails)
 
 def main():
     file_path = os.environ["INPUT_FILEPATH"]
