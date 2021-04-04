@@ -1,7 +1,6 @@
 ##Members
-(isac.arvidsson97@gmail.com)
-ssax
 
+testactionkth@gmail.com
 isacarv@kth.se
 #notify
 
