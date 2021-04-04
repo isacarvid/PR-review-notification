@@ -35,7 +35,6 @@ def emailFinder(readme):
             end_index = domain_index
             while end_index < len(line):
                 if line[end_index] == ' ':
-                    end_index -= 1
                     break
                 if end_index == len(line)-1:
                     break
