@@ -9,6 +9,7 @@ EMAIL_USERNAME, eg. name@server.com
 EMAIL_PASSWORD, eg. passwordToEmail
 
 EMAIL_DOMAIN, eg. smtp.gmail.com
+
     
 ### Inputs
 
@@ -57,19 +58,37 @@ EMAIL_DOMAIN, eg. smtp.gmail.com
           
 ### Example workflow
 ```yaml
-name: Some PR
+name: someName
 on:
   pull_request_review:
     types: [edited, dismissed, submitted]
+  
 jobs:
-  notif-prs:
+  Notifier:
+    name: someName
     runs-on: ubuntu-latest
     steps:
-      - uses: isacarvid/PR-review-notification
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v2
         with:
+          python-version: "3.7"
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Get README.md
+        run: |
+          git fetch --quiet
+          diffFiles=$(git diff origin/master HEAD --name-only)
+          diffFiles="${diffFiles//'%'/'%25'}"
+          diffFiles="${diffFiles//$'\n'/'%0A'}"
+          diffFiles="${diffFiles//$'\r'/'%0D'}"
+          echo "::set-output name=files::$diffFiles"
+        id: get-diff
+      - name: run python
+        uses: isacarvid/ isacarvid/PR-review-notification@v1.2
+        with:
+          filePath: ${{ steps.get-diff.outputs.files}}
           usernameSecret: ${{ secrets.EMAIL_USERNAME }}
           passwordSecret: ${{ secrets.EMAIL_PASSWORD }}
           domainSecret: ${{ secrets.EMAIL_DOMAIN }}
           keyword: '#notify'
-          ```
 
