@@ -16,5 +16,11 @@ with:
   passwordSecret: ${{ secrets.EMAIL_PASSWORD }}
   domainSecret: ${{ secrets.EMAIL_DOMAIN }}
   keyword: '#notify'
+  
+#Step 3
+add these triggers to workflow:
+on:
+  pull_request_review:
+    types: [edited, dismissed, submitted]
 
 
