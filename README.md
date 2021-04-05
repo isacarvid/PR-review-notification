@@ -2,7 +2,7 @@ This GitHub action triggers on a PR review update (comment, requested changes, a
 
 # Setup
 ### Pre-requisites
-Insert secrets in to Github secrets. The keys has to be as follows:
+Add secrets to your repository's Github secrets. The keys are as follows:
 
 EMAIL_USERNAME, eg. name@server.com
 
@@ -26,7 +26,7 @@ EMAIL_DOMAIN, eg. smtp.gmail.com
     <tr>
       <td>:heavy_exclamation_mark:</td>
       <td>filePath</td>
-      <td>Path to the readme. Where notification addresses are to be found. Computed by the steps in workflow</td>
+      <td>Path to the readme. Where notification addresses are to be found. Computed by the steps in workflow.</td>
     </tr>
     <tr>
       <td>:heavy_exclamation_mark:</td>
@@ -71,5 +71,4 @@ jobs:
           passwordSecret: ${{ secrets.EMAIL_PASSWORD }}
           domainSecret: ${{ secrets.EMAIL_DOMAIN }}
           keyword: '#notify'
-          ```
-
+```
