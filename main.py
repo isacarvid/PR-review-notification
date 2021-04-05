@@ -11,32 +11,38 @@ def sendEmail(username, password, domain, toAddress, msg):
         server.sendmail(username, toAddress, msg)
 
 
-def emailFinder(readme, domain):
-    addr_suffix = "@"+domain
-    num_email = 0
+def emailFinder(readme):
     mails = []
 
     for line in readme:
-        addr_suffix = "@"+domain
+        addr_prefix = ""
+        addr_suffix = ""
         domain_index = 0
-        start_index = 0
         while domain_index < len(line):
-            domain_index = line.find(addr_suffix, domain_index)
-            if domain_index == -1:
+            domain_index = line.find("@", domain_index)
+            if domain_index == -1: # no emails on this line
                 break
-
-            num_email += 1
+            
             start_index = domain_index
-            while len(mails) != num_email and start_index >= 0:
+            while start_index >= 0:
                 if line[start_index] == ' ':
-                    mails.append(line[start_index+1:domain_index+len(addr_suffix)])
+                    start_index += 1
                     break
                 if start_index == 0:
-                    mails.append(line[start_index:domain_index+len(addr_suffix)])
                     break
                 start_index -= 1
             
-            domain_index += len(addr_suffix)
+            end_index = domain_index
+            while end_index < len(line):
+                if line[end_index] == ' ':
+                    break
+                if end_index == len(line)-1:
+                    break
+                end_index += 1
+                
+            mails.append(line[start_index:end_index])
+            
+            domain_index += 1 # 1 is len("@")
             
     return mails
 
@@ -63,8 +69,7 @@ def main():
             break
 
     if notify:
-        mails = emailFinder(readme, "kth.se")
-        mails += emailFinder(readme, "gmail.com") # for debug
+        mails = emailFinder(readme)
         for to_addr in mails:
             sendEmail(username, pwd, domain, to_addr, message)
 
