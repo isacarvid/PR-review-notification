@@ -1,6 +1,6 @@
-name: "Python Container Action Template"
-description: "Get started with Python Container actions"
-author: "Isac Arvidsson"
+name: "PR review norification"
+description: "Notifies users when a review has been addded on a PR"
+author: "Isac Arvidsson & Ayup Atif"
 inputs:
   filePath:
     description: "Input to use"
