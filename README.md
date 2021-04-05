@@ -1,3 +1,5 @@
+This GitHub action triggers on a PR review update (comment, requested changes, approve changes).  
+
 ##Setup
 #Step 1
 Insert secrets in to Github secrets. The keys has to be as follows:
