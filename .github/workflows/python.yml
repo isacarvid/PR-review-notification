@@ -4,6 +4,7 @@ on:
     types: [edited, dismissed, submitted]
   push:
   
+    
 jobs:
   Notifier:
     name: Notifier
