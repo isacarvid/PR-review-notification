@@ -1,6 +1,6 @@
 name: "PR review norification"
 description: "Notifies users when a review has been addded on a PR"
-author: "Isac Arvidsson & Ayup Atif"
+author: "Isac Arvidsson & Ayub Atif"
 inputs:
   filePath:
     description: "Input to use"
